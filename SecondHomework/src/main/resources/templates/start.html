@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Start')" />
+
+<body>
+
+<div class="container">
+    <!--/*@thymesVar id="postModel" type="com.homework.first.model"*/-->
+    <!-- method="get" th:action="@{/api/home}" class="form-horizontal col-md-9 col-lg-6" enctype="multipart/form-data" -->
+    <form>
+        <h3>Choose one:</h3>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"> Login </label>
+            <div class="col-sm-10">
+                <a th:href="${'/api/login'}" class="btn btn-secondary" id="longin">Login</a>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label"> Registration </label>
+            <div class="col-sm-10">
+                <a th:href="${'/api/registration'}" class="btn btn-secondary" id="registration">Registration</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

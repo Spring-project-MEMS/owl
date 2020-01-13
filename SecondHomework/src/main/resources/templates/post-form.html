@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Add post')" />
+<body>
+
+<div th:replace="fragments/menu :: menu(${path})" />
+
+<div class="container">
+    <!--/*@thymesVar id="postModel" type="com.homework.first.model"*/-->
+    <form method="post" th:action="@{/api/posts/post-form}" th:object="${postModel}" class="form-horizontal col-md-9 col-lg-6" enctype="multipart/form-data">
+        <h3>Edit post</h3>
+
+        <div class="form-group row">
+            <label th:text="#{lbl.id}" class="col-sm-2 col-form-label"> Id </label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" readonly/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label th:text="#{lbl.title}" class="col-sm-2 col-form-label"> Title </label>
+            <div class="col-sm-10">
+                <input type="text" name="title" th:placeholder="Title" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label th:text="#{lbl.author}" class="col-sm-2 col-form-label"> Author </label>
+            <div class="col-sm-10">
+                <input type="text" name="author" th:placeholder="Author" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label th:text="#{lbl.content}" class="col-sm-2 col-form-label"> Content </label>
+            <div class="col-sm-10">
+                <input type="text" name="content" th:placeholder="Content" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label th:text="#{lbl.status}" class="col-sm-2 col-form-label"> Status </label>
+            <div class="col-sm-10">
+                <input type="text" name="status" th:placeholder="Status" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-primary" id="submit" name="submit" value="submit">Submit</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+                <a th:href="${'/api/posts'}" class="btn btn-secondary" id="cancel">Cancel</a>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div th:replace="fragments/foot :: foot" />
+
+</body>
+</html>
